@@ -180,6 +180,11 @@ legend.onAdd = function() {
       console.log(data);
   // 4. Use the same style as the earthquake data.
   L.geoJson(data, {
+    // We turn each feature into a circleMarker on the map.
+    pointToLayer: function(feature, latlng) {
+      console.log(data);
+      return L.circleMarker(latlng);
+    },
     style: styleInfo
   }).addTo(majorEarthquakes);
   });
